@@ -1,0 +1,47 @@
+import java.util.HashSet;
+import java.util.Set;
+
+public class SphenicNumberChecker {
+    public static void main(String[] args) {
+        int number = 30; // Example number
+        boolean isSphenic = isSphenicNumber(number);
+        
+        if (isSphenic) {
+            System.out.println(number + " is a sphenic number.");
+        } else {
+            System.out.println(number + " is not a sphenic number.");
+        }
+    }
+
+    public static boolean isSphenicNumber(int num) {
+        Set<Integer> primeFactors = new HashSet<>();
+        int count = 0;
+
+        // Check for divisibility by each number from 2 to num
+        for (int i = 2; i <= num; i++) {
+            if (isPrime(i) && num % i == 0) {
+                primeFactors.add(i);
+                num /= i;
+                i--; // Check the same factor again
+                count++;
+                if (count > 3) { // More than 3 factors, can't be sphenic
+                    return false;
+                }
+            }
+        }
+
+        return primeFactors.size() == 3 && num == 1;
+    }
+
+    public static boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
