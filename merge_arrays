@@ -1,0 +1,59 @@
+python
+
+class Solution:
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        if not intervals:
+            return []
+        intervals.sort(key =lambda x:x[0])
+        merged=[intervals[0]]
+        for current in intervals[1:]:
+            last=merged[-1]
+            start=current[0]
+            end=current[1]
+            if last[1]>=start:
+                last[1]=max(end,last[1])
+            else:
+                merged.append(current)
+        return merged
+
+Java
+
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+
+class Solution {
+    public int[][] merge(int[][] intervals) {
+        // Handle edge case where intervals array is empty
+        if (intervals.length == 0) {
+            return new int[0][0];
+        }
+
+        // Step 1: Sort the intervals by their start times
+        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
+
+        // Step 2: Create a list to store the merged intervals
+        List<int[]> merged = new ArrayList<>();
+
+        // Step 3: Initialize the merged list with the first interval
+        int[] currentInterval = intervals[0];
+        merged.add(currentInterval);
+
+        // Step 4: Iterate through each interval and merge if necessary
+        for (int[] interval : intervals) {
+            int currentEnd = currentInterval[1]; // End of the current interval in merged list
+            int nextStart = interval[0];         // Start of the next interval
+            int nextEnd = interval[1];           // End of the next interval
+
+            if (currentEnd >= nextStart) { // Overlapping intervals, merge them
+                currentInterval[1] = Math.max(currentEnd, nextEnd);
+            } else { // Non-overlapping interval, add to the merged list
+                currentInterval = interval;
+                merged.add(currentInterval);
+            }
+        }
+
+        // Step 5: Convert the list of merged intervals back to a 2D array
+        return merged.toArray(new int[merged.size()][]);
+    }
+}
