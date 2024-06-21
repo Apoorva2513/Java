@@ -1,0 +1,39 @@
+package patterns;
+import java.util.*;
+
+public class pattern6 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		int n=4;
+		for(int i=1;i<=n;i++)
+		{
+			for(int j=n;j>0;j--) {
+				if(j<=i) {
+					System.out.print(j);
+				}
+				else {
+					System.out.print(" ");
+				}
+			}
+			
+			for(int k=2;k<=n;k++) {
+				if(i==1) {
+					break;
+				}
+				if(k<=i)
+				{
+					System.out.print(k);
+				}
+			}	
+			System.out.print("\n");
+		}
+	}
+}
+
+   1
+  212
+ 32123
+4321234
+
