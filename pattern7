@@ -1,0 +1,71 @@
+package patterns;
+import java.util.*;
+
+public class pattern10 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		int r=sc.nextInt();
+		int n=(r/2)+1;
+		int m=0;
+		for(int i=1;i<=r;i++)
+		{
+			for(int j=1;j<=r;j++)
+			{
+				if(i!=r)
+				{
+				if(j==(n-m) || j==(n+m))
+				{
+					System.out.print("*");
+					
+					
+				}
+				else
+					System.out.print(" ");
+				}
+				else if(i==r)
+				{
+					if(j==n)
+						
+							System.out.print("*");
+					else
+						System.out.print(" ");
+						
+				}
+				
+			}
+			if(i<n)
+				m++;
+			else
+				m--;
+//			if(i==n)
+//			{
+//				m=n;
+//			}
+			
+			System.out.println();
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//		  *
+//	   * *
+//	  *   *
+//	   * *
+//	    *
+		
+		
+				
+	
+	}
+	}
+
+
+
