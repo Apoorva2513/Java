@@ -1,0 +1,53 @@
+package patterns;
+import java.util.*;
+
+public class pattern11 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		int r=sc.nextInt();
+//		int s =sc.nextInt();
+		int v=0;
+		int n=(r/2)+1;
+		for(int i=1;i<=r-3;i++)
+		{
+			for(int j=1;j<=r;j++)
+			{
+				if(i%2==0)
+				{
+				if(j>=(n-v)&& (j<=(n+v)) && j%2!=0 )
+					System.out.print("*");
+				else
+					System.out.print(" ");
+				}
+				else
+				{
+					if(j>=(n-v)&& (j<=(n+v)) && j%2==0 )
+						System.out.print("*");
+					else
+						System.out.print(" ");
+				}
+			}
+			v++;
+			System.out.println();
+		}
+		}
+	}
+//      *
+//     * *
+//    * * *
+//   * * * *
+
+9
+         
+    *    
+   * *   
+  * * *  
+ * * * * 
+* * * * *
+have some issue check it out for 5 input
+    
+
+
+
