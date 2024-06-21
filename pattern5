@@ -1,0 +1,47 @@
+package patterns;
+import java.util.*;
+
+public class pattern9 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		int r=sc.nextInt();
+		int v=1;
+		for(int i=0;i<r;i++)
+		{
+			
+			if(i%2==0)
+			{
+				for(int j=0;j<r;j++)
+				{
+				System.out.print(v+"  ");
+				v++;
+			}
+				System.out.println();
+		
+			}
+			else
+			{
+				v=v+r-1;
+				for(int j=0;j<r;j++)
+				{
+					System.out.print(v+"  ");
+					v--;
+				}
+				v=v+r+1;
+				System.out.println();
+				
+			}
+		}
+		}
+	}
+5
+1  2  3  4  5  
+10  9  8  7  6  
+11  12  13  14  15  
+20  19  18  17  16  
+21  22  23  24  25  
+
+
+
